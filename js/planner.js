@@ -3,7 +3,7 @@ import {
   sunTimes, mazume, tideName, moonAge, moonIllumination, moonPhaseName, estimateTides, findExtrema,
   tideStage, jstDate, parseYmd, addDays, TIDE_INFO,
 } from './astro.js';
-import { fetchWeather, fetchMarine } from './weather.js';
+import { fetchWeather, fetchMarine, fetchRange } from './weather.js';
 import { recommendFish, SPOT_TYPES, POINT_GUIDE } from './fish.js';
 
 const H = 3600000;
@@ -156,6 +156,6 @@ export async function buildReport(spot, ymd) {
 
   return {
     spot, ymd, type, isSea, sun, maz, tideName: tn, moon, tides, weather: dailyW, table, waterTemp, waveMax,
-    score, jiai, fish, week, points: POINT_GUIDE[type] || [], errors, hasForecast: !!weather, dayStart: start, dayEnd: end,
+    score, jiai, fish, week, points: POINT_GUIDE[type] || [], errors, hasForecast: !!weather, inForecastRange: !!fetchRange(ymd, 0), dayStart: start, dayEnd: end,
   };
 }

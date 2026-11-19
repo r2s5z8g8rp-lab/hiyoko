@@ -1,5 +1,5 @@
 // オフラインでもアプリ画面を開けるようにする（天気等のAPIはネットワーク優先）
-const CACHE = 'tsuribiyori-v1';
+const CACHE = 'tsuribiyori-v2';
 const ASSETS = ['./', 'index.html', 'css/style.css', 'js/app.js', 'js/astro.js', 'js/weather.js', 'js/fish.js',
   'js/spots.js', 'js/planner.js', 'js/chart.js', 'manifest.webmanifest', 'icons/icon.svg'];
 

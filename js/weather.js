@@ -16,6 +16,7 @@ async function getJson(url) {
   if (!res.ok) {
     let reason = `HTTP ${res.status}`;
     try { reason = (await res.json()).reason || reason; } catch { /* noop */ }
+    if (res.status === 429) reason = 'データ提供元の利用回数の上限に達しました。しばらくしてから再度お試しください';
     throw new Error(reason);
   }
   const data = await res.json();
