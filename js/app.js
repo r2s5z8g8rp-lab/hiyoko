@@ -108,8 +108,8 @@ function renderReport(r) {
       ${r.waterTemp != null ? `<div class="stat"><span>水温(海面)</span><strong>${n1(r.waterTemp)}℃</strong></div>` : ''}
     </div>
     ${r.score.warnings.length ? `<ul class="warnings">${r.score.warnings.map((x) => `<li>⚠ ${esc(x)}</li>`).join('')}</ul>` : ''}
-    ${!r.hasForecast ? '<p class="note">この日は天気予報の範囲外（16日先まで）です。潮回り・月齢・日の出入りは計算値で表示しています。</p>' : ''}
-    ${r.errors.length ? `<p class="note">一部のデータを取得できませんでした（${esc(r.errors.join(' / '))}）。通信環境を確認してください。</p>` : ''}`;
+    ${!r.inForecastRange ? '<p class="note">この日は天気予報の範囲外（16日先まで）です。潮回り・月齢・日の出入りは計算値で表示しています。</p>' : ''}
+    ${r.errors.length ? `<p class="note">天気・海況データの一部を取得できませんでした（${esc([...new Set(r.errors)].join(' / '))}）。潮回り・月齢・日の出入りは計算値で表示しています。</p>` : ''}`;
 
   const tideSec = r.isSea ? section('潮汐', `
     <p class="lead"><strong>${r.tideName.name}</strong>：${tInfo.desc}</p>
