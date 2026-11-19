@@ -1,0 +1,13 @@
+{
+  "name": "釣り日和 - 釣行プランナー",
+  "short_name": "釣り日和",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6f8",
+  "theme_color": "#0d4f7a",
+  "lang": "ja",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
